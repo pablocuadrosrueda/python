@@ -1,0 +1,61 @@
+1️⃣ Clase y objeto
+C++	Python
+class Producto { ... };	class Producto:
+Constructor: Producto(string codigo, string nombre, int cantidad, float precio) {...}	def __init__(self, codigo, nombre, cantidad, precio): ...
+Crear objeto: Producto p1("A001", "Manzanas", 50, 1.2);	p1 = Producto("A001", "Manzanas", 50, 1.2)
+Notas:
+En Python no hace falta punto y coma ni llaves {}.
+self en Python equivale a this en C++: referencia al objeto actual.
+2️⃣ Atributos y métodos
+C++	Python
+string nombre;	self.nombre = nombre
+int cantidad;	self.cantidad = cantidad
+Método: void mostrar() { cout << nombre; }	def mostrar(self): print(self.nombre)
+Notas:
+Python no tiene tipos obligatorios, pero puedes añadir type hints si quieres:
+def __init__(self, codigo: str, nombre: str, cantidad: int, precio: float):
+    ...
+3️⃣ Modificadores de acceso
+C++	Python
+private, public, protected	Python no tiene privados estrictos. Se usa convención: _atributo o __atributo
+Ejemplo C++: private: int cantidad;	Python: self._cantidad = cantidad (convención: no acceder fuera de la clase)
+4️⃣ Composición (has-a)
+En C++:
+class Almacen {
+    map<string, Producto> inventario;
+};
+En Python:
+class Almacen:
+    def __init__(self):
+        self.inventario = {}  # clave: código del producto, valor: objeto Producto
+La idea es la misma: un objeto contiene otros objetos.
+En Python usamos diccionarios o listas para almacenar los objetos contenidos.
+5️⃣ Herencia (is-a)
+C++:
+class Estudiante : public Persona { ... };
+Python:
+class Estudiante(Persona):
+    def __init__(self, nombre, matricula):
+        super().__init__(nombre)
+        self.matricula = matricula
+super() llama al constructor de la clase padre.
+Herencia y polimorfismo funcionan igual que en C++.
+6️⃣ Archivos y modularidad
+C++:
+// Producto.h
+class Producto { ... };
+// Producto.cpp
+#include "Producto.h" ...
+Python:
+# producto.py
+class Producto: ...
+# main.py
+from producto import Producto
+Cada clase en un archivo .py → como tus .h + .cpp.
+No hace falta declarar funciones antes de definirlas como en C++.
+💡 Resumen clave
+self = this
+diccionarios/listas = mapas/vectores
+módulos = archivos .h/.cpp
+no hay tipado obligatorio, pero puedes usar type hints.
+composición y herencia = lo mismo que en C++

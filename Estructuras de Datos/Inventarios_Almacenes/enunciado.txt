@@ -1,0 +1,49 @@
+Proyecto: Gestión de Inventarios por Almacén
+Objetivo
+Crear un sistema que permita administrar productos en varios almacenes de una empresa. Cada almacén tiene su propio inventario de productos, y cada producto tiene atributos como código, nombre, cantidad y precio.
+Estructuras de datos sugeridas
+Producto → clase con atributos:
+codigo (string, clave única del producto)
+nombre (string)
+cantidad (int)
+precio (float)
+Almacén → clase con composición:
+nombre (string)
+inventario (diccionario donde clave = código del producto, valor = objeto Producto)
+Métodos sugeridos:
+agregar_producto(producto)
+eliminar_producto(codigo)
+actualizar_stock(codigo, cantidad)
+mostrar_inventario()
+Empresa → clase con composición:
+nombre (string)
+almacenes (diccionario donde clave = nombre del almacén, valor = objeto Almacén)
+Métodos sugeridos:
+agregar_almacen(nombre)
+eliminar_almacen(nombre)
+mostrar_almacenes()
+transferir_producto(codigo, cantidad, origen, destino)
+Operaciones que debes implementar
+Agregar, eliminar y modificar productos dentro de cada almacén.
+Mostrar el inventario completo de un almacén.
+Agregar y eliminar almacenes.
+Transferir productos entre almacenes (disminuir stock en origen y aumentar en destino).
+Opcional: calcular valor total de inventario por almacén o por empresa.
+Ideas de estructura de archivos
+inventario_empresa/
+│
+├── producto.py        # Clase Producto
+├── almacen.py         # Clase Almacén
+├── empresa.py         # Clase Empresa
+└── main.py            # Interfaz de usuario / menú principal
+Cada clase en su propio archivo → práctica de modularidad y organización como en C++.
+main.py contendrá un menú interactivo para probar todas las funciones (como hiciste con la agenda de contactos).
+Puntos importantes a practicar
+Composición: Almacén contiene Productos, Empresa contiene Almacenes.
+Diccionarios: Para buscar productos por código y almacenes por nombre en O(1).
+Validaciones: Comprobar que no se agregue un producto duplicado, no transferir más de lo que hay, etc.
+Iteración sobre diccionarios: Para mostrar inventarios y almacenes.
+Entrada del usuario: Validar tipos de datos (str, int, float) como hiciste con la agenda.
+💡 Mini desafío extra (opcional):
+Implementa una función que muestre los productos más caros o más baratos en todos los almacenes de la empresa.
+Implementa búsqueda de productos por nombre parcial, no solo por código.
