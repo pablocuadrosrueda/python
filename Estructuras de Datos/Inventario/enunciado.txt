@@ -28,6 +28,7 @@ Agregar, eliminar y modificar productos dentro de cada almacén.
 Mostrar el inventario completo de un almacén.
 Agregar y eliminar almacenes.
 Transferir productos entre almacenes (disminuir stock en origen y aumentar en destino).
+
 Opcional: calcular valor total de inventario por almacén o por empresa.
 Ideas de estructura de archivos
 inventario_empresa/
@@ -36,14 +37,21 @@ inventario_empresa/
 ├── almacen.py         # Clase Almacén
 ├── empresa.py         # Clase Empresa
 └── main.py            # Interfaz de usuario / menú principal
+
 Cada clase en su propio archivo → práctica de modularidad y organización como en C++.
 main.py contendrá un menú interactivo para probar todas las funciones (como hiciste con la agenda de contactos).
 Puntos importantes a practicar
+
 Composición: Almacén contiene Productos, Empresa contiene Almacenes.
+
 Diccionarios: Para buscar productos por código y almacenes por nombre en O(1).
+
 Validaciones: Comprobar que no se agregue un producto duplicado, no transferir más de lo que hay, etc.
+
 Iteración sobre diccionarios: Para mostrar inventarios y almacenes.
+
 Entrada del usuario: Validar tipos de datos (str, int, float) como hiciste con la agenda.
+
 💡 Mini desafío extra (opcional):
 Implementa una función que muestre los productos más caros o más baratos en todos los almacenes de la empresa.
 Implementa búsqueda de productos por nombre parcial, no solo por código.
