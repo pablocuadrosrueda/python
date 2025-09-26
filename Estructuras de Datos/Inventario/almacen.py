@@ -44,6 +44,8 @@ class Almacen:
         if self.__inventario:
              if codigo in self.__inventario:
                   self.__inventario[codigo].actualizar_cantidad(cantidad)
+                  if self.__inventario[codigo].get_cantidad() == 0:
+                       self.eliminar_producto(codigo)
              else:
                   print(f"El producto con codigo: {codigo} no se encuentra en el inventario")   
         else:
@@ -55,3 +57,18 @@ class Almacen:
                    print(p)
          else:
               print("Sin existencias de ningún tipo")
+
+
+    #Get nombre
+    def get_nombre(self):
+         return self.__nombre
+    
+    #Funciones auxiliares
+    #Funcion que en en caso de que este devuelve la cantidad y si no devuelva un 0 
+    def esta_producto(self,codigo):
+         if codigo in self.__inventario:
+              return self.__inventario[codigo].get_cantidad()
+         else:
+              return 0
+         
+
