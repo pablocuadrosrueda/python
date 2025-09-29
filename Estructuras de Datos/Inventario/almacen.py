@@ -71,4 +71,9 @@ class Almacen:
          else:
               return 0
          
+    def get_producto(self,codigo):
+        if codigo in self.__inventario:
+              return self.__inventario[codigo]
+        else:
+              return None
 

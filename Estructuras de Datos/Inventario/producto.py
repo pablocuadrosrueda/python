@@ -18,6 +18,18 @@ class Producto:
         self.__cantidad = cantidad
         self.__precio = precio
 
+    @classmethod
+    def copiar(cls, otro):
+        if not isinstance(otro, Producto):
+            raise ValueError("Se esperaba un objeto Producto")
+        return cls(
+            otro.get_codigo(),
+            otro.get_nombre(),
+            otro.get_cantidad(),
+            otro.get_precio()
+        )    
+
+
     #Métodos get y set     
     def get_codigo(self):
         return self.__codigo
