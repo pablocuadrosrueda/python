@@ -2,6 +2,8 @@ from producto import Producto
 from almacen import Almacen
 from empresa import Empresa
 
+#Durante las siguientes semanas agregaremos una clase por encima para permitir transacciones entre Empresas, una clase historial y entrada/salida de los datos
+
 def menu():
     print("\n--- Gestión de Inventarios ---")
     print("1. Agregar almacén")
