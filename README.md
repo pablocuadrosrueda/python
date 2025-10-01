@@ -1,7 +1,8 @@
 # Repositorio de Aprendizaje en Python
 
 Bienvenido a mi repositorio de Python, que contiene ejercicios, prácticas y proyectos de creciente complejidad.  
-Va desde ejercicios básicos de sintaxis hasta proyectos de estructuras de datos y aplicaciones completas.
+Va desde ejercicios básicos de sintaxis hasta proyectos de estructuras de datos y aplicaciones completas de cara a comenzar
+en un futuro próximo con proyectos de mayor calibre.
 
 ## Objetivo del Repositorio
 
