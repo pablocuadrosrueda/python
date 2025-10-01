@@ -18,12 +18,16 @@ Ideas de estructura de archivos
 
 from almacen import Almacen
 from producto import Producto
+from historial import GestorHistorial
+from historial import Transaccion
 
 class Empresa:
 
     def __init__(self,nombre):
         self.__nombre = nombre
         self.__almacenes = {}
+        #Agregamos un historial a cada empresa
+        self.__historial = GestorHistorial()
 
     #Para agregar un almacén primero debo comprobar si dicho almacén no existe ya previamente (su nombre está disponible)
     def agregar_almacen(self,almacen):
@@ -87,6 +91,15 @@ class Empresa:
                         almacen_destino.actualizar_stock(codigo,(+cantidad))
                     #Actualizamos la cantidad del almacen de origen en ultima instancia    
                     almacen_origen.actualizar_stock(codigo,(-cantidad))    
+                    transaccion = Transaccion(
+                        empresa_origen=self.__nombre,
+                        empresa_destino=self.__nombre,  
+                        articulo=producto.get_nombre(),
+                        cantidad=cantidad,
+                        costo=producto.get_precio() * cantidad
+                    )
+                    self.__historial.agregar_transaccion(transaccion)
+
                     return True
                 else:
                     print("La cantidad seleccionada no es compatible con la cantidad en stock que hay actualmente en el almacen de origen")   
@@ -103,3 +116,9 @@ class Empresa:
             return self.__almacenes[nombre]
         else:
             return None
+        
+    def mostrar_historial(self):
+        self.__historial.mostrar_historial()
+
+    def get_historial(self):
+        return self.__historial
